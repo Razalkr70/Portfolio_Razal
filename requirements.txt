@@ -2,4 +2,5 @@ Flask==3.0.0
 Flask-Mail==0.9.1
 chatterbot==1.0.5
 chatterbot-corpus==1.2.0
-pyyaml==6.0
+pyyaml
+
