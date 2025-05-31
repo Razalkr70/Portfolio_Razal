@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>razal- Personal Portfolio</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='images/site.webmanifest') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  .main-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: grid;
+    grid-template-rows: auto;
+  }
+/* 
+.chat-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 1000;
+  animation: bounce 1s ease-in-out infinite;  
+} */
+
+</style>
+  
+</head>
+
+<body>
+
+  <header class="header">
+     <button class="navbar-hamburger" aria-label="Toggle navigation menu">
+      &#9776;  <!-- Unicode hamburger icon -->
+    </button>
+    <div class="profile-section">
+      <img src="{{ url_for('static', filename='images/Group 1000004584.png') }}" alt="Razal K R" class="profile-pic">
+    </div>
+    <h1 class="profile-name">Razal K R</h1>
+    <p class="profile-title">AI Developer</p>
+    <p class="profile-subtext">Building intelligent, user-friendly solutions for the future.</p>
+    <nav class="navbar">
+      
+    <ul class="navbar-list">
+  <li class="navbar-item">
+    <a href="#about-header" class="navbar-link">About</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('resume') }}" class="navbar-link">Resume</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('projects') }}" class="navbar-link button-link">Projects</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('blog') }}" class="navbar-link button-link">Blog</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('contact') }}" class="navbar-link button-link">Contact</a>
+  </li>
+</ul>
+
+    </nav>
+    
+    </header>
+    <main>
+    <div class="main-content" style="margin-top:30px;margin-bottom:30px">
+      <!--
+        - #ABOUT
+      -->
+    
+      <article class="about  active" data-page="about">
+        <div class="about1"  style="padding: 1rem">
+        <header id="about-header">
+          <h2 id="abc" class="h2 article-title">About me</h2>
+        </header>
+    
+        <section class="about-text">
+          <p>
+            I'm an AI/ML Developer and Research Enthusiast based in Thrissur, working on machine learning models, AI applications, and intelligent automation systems. I enjoy turning complex problems into simple, efficient, and innovative AI solutions.
+          </p>
+        
+          <p>
+            My job is to develop AI-driven applications that are accurate, scalable, and user-friendly. I also add a creative touch to ensure that every solution is practical and impactful. My aim is to bring your ideas to life using the power of Artificial Intelligence and Machine Learning. I have worked on various AI projects, helping organizations harness the potential of data and smart technologies.
+          </p>
+        </section>
+      </div>
+        <section class="timeline-section" id="timeline">
+         <div class="timeline-tabs-wrapper">
+  <div class="timeline-tabs">
+    <button class="tab-button active" data-tab="education">Education</button>
+    <button class="tab-button" data-tab="work">Work</button>
+    <button class="tab-button" data-tab="certificates">Certificates</button>
+  </div>
+</div>
+
+        
+          <div class="tab-content-container">
+            <!-- Education Timeline -->
+            <div class="tab-content active" id="education">
+              <div class="timeline-item">
+                <h3>B.Tech in AI & Data Science</h3>
+                <span>MESCE | 2021 - 2025</span>
+                <p>Studied machine learning, data science, and AI technologies with real-world project applications.</p>
+              </div>
+              <div class="timeline-item">
+                <h3>Higher Secondary - Computer Science</h3>
+                <span>Ansar English School | 2019 - 2021</span>
+                <p>Excelled in mathematics and computer science, building a strong base for tech education.</p>
+              </div>
+            </div>
+        
+            <!-- Work Timeline -->
+            <div class="tab-content" id="work">
+              <div class="timeline-item">
+                <h3>Junior Software Engineer</h3>
+                <span>Dhooma Technologies | 2024</span>
+                <p>Worked on backend and AI-based systems with a focus on scalable web architecture.</p>
+              </div>
+              <div class="timeline-item">
+                <h3>Freelancer - Python & Django</h3>
+                <span>Remote | 2023 - Present</span>
+                <p>Built full-stack web apps and automation tools for startups and clients globally.</p>
+              </div>
+            </div>
+        
+            <!-- Certificates Timeline -->
+            <div class="tab-content" id="certificates">
+              <div class="timeline-item">
+                <h3>Big Data Foundation</h3>
+                <span>IBM | March 2023</span>
+                <p>Mastered Hadoop and big data technologies to manage and analyze large datasets.</p>
+              </div>
+              <div class="timeline-item">
+                <h3>AWS Cloud Technical Essentials</h3>
+                <span>Amazon | November 2023</span>
+                <p>Gained cloud computing skills, understanding EC2, S3, and foundational AWS services.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+
+
+        <script>
+          document.querySelectorAll(".tab-button").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const tab = btn.dataset.tab;
+          
+              // Remove active from all
+              document.querySelectorAll(".tab-button").forEach(b => b.classList.remove("active"));
+              document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+          
+              // Activate selected
+              btn.classList.add("active");
+              document.getElementById(tab).classList.add("active");
+            });
+          });
+          </script>
+<section class="service">
+
+  <h3 class="h3 service-title">What I'm Doing</h3>
+
+  <!-- Wrap service-list in a carousel container for mobile -->
+  <div class="carousel-wrapper">
+    <ul class="service-list">
+      <li class="service-item">
+        <div class="service-content-box">
+          <div class="service-header">
+            <div class="service-icon-box">
+              <img src="{{ url_for('static', filename='images/Group 1000005017.svg') }}" alt="AI Model" width="40" height="40">
+            </div>
+            <h4 class="h4 service-item-title">AI Model Development</h4>
+          </div>
+          <p class="service-item-text">
+            Designing machine learning models that solve real-world problems intelligently.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-content-box">
+          <div class="service-header">
+            <div class="service-icon-box">
+              <img src="{{ url_for('static', filename='images/Group 1000005018.svg') }}" alt="Data Analysis" width="40" height="40">
+            </div>
+            <h4 class="h4 service-item-title">Data Analysis and Prediction</h4>
+          </div>
+          <p class="service-item-text">
+            Using AI to understand data patterns and predict future outcomes.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-content-box">
+          <div class="service-header">
+            <div class="service-icon-box">
+              <img src="{{ url_for('static', filename='images/Group 1000005020.svg') }}" alt="Computer Vision" width="40" height="40">
+            </div>
+            <h4 class="h4 service-item-title">Computer Vision Solutions</h4>
+          </div>
+          <p class="service-item-text">
+            Building AI that can recognize faces, objects, and scenes from images or videos.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-content-box">
+          <div class="service-header">
+            <div class="service-icon-box">
+              <img src="{{ url_for('static', filename='images/Group 1000005021.svg') }}" alt="NLP" width="40" height="40">
+            </div>
+            <h4 class="h4 service-item-title">Natural Language Processing (NLP)</h4>
+          </div>
+          <p class="service-item-text">
+            Creating AI systems that can read, write, and understand human language.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-content-box">
+          <div class="service-header">
+            <div class="service-icon-box">
+              <img src="{{ url_for('static', filename='images/Group 1000005022.svg') }}" alt="Automation" width="40" height="40">
+            </div>
+            <h4 class="h4 service-item-title">AI Automation</h4>
+          </div>
+          <p class="service-item-text">
+            Developing smart automation tools to make tasks faster and easier.
+          </p>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <div class="service-content-box">
+          <div class="service-header">
+            <div class="service-icon-box">
+              <img src="{{ url_for('static', filename='images/Group 1000005023.svg') }}" alt="Integration" width="40" height="40">
+            </div>
+            <h4 class="h4 service-item-title">AI Integration for Websites and Apps</h4>
+          </div>
+          <p class="service-item-text">
+            Adding AI features into web and mobile apps to make them smarter and more interactive.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Dots navigation container -->
+  <div class="carousel-dots"></div>
+
+</section>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const serviceList = document.querySelector('.service-list');
+  const items = Array.from(serviceList.children);
+  const dotsContainer = document.querySelector('.carousel-dots');
+
+  // For mobile only, group items in pairs to create slides of 2 items each
+  const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+  if (isMobile) {
+    // Clear serviceList and rebuild grouped slides
+    serviceList.innerHTML = '';
+
+    // Group every 2 items into one slide div
+    for (let i = 0; i < items.length; i += 2) {
+      const slide = document.createElement('li');
+      slide.classList.add('service-slide');
+      // Append 2 items per slide
+      slide.appendChild(items[i]);
+      if (items[i + 1]) slide.appendChild(items[i + 1]);
+      serviceList.appendChild(slide);
+    }
+
+    // Variables to manage current slide index and total slides
+    const totalSlides = serviceList.children.length;
+    let currentIndex = 0;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('carousel-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.dataset.index = i;
+      dotsContainer.appendChild(dot);
+
+      // Dot click event
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        updateCarousel();
+        resetAutoSlide();
+      });
+    }
+
+    // Function to update carousel position and active dot
+    function updateCarousel() {
+      const offset = -(currentIndex * 100 / totalSlides) * totalSlides; // in %
+      // Using translateX in %
+      serviceList.style.transform = `translateX(-${(currentIndex * 100) / totalSlides}%)`;
+
+      // Update active dot
+      dotsContainer.querySelectorAll('.carousel-dot').forEach(dot => {
+        dot.classList.remove('active');
+      });
+      dotsContainer.children[currentIndex].classList.add('active');
+    }
+
+    // Auto slide every 4 seconds
+    let autoSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }, 4000);
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }, 4000);
+    }
+}
+});
+
+</script>
+<script>
+          const serviceItems = document.querySelectorAll('.service-item');
+        
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          });
+        
+          serviceItems.forEach(item => {
+            observer.observe(item);
+          });
+
+
+
+const hamburger = document.querySelector('.navbar-hamburger');
+const navList = document.querySelector('.navbar-list');
+
+hamburger.addEventListener('click', (e) => {
+  navList.classList.toggle('active');
+  e.stopPropagation(); // Prevent click from bubbling up to document
+});
+
+// Close nav if clicking outside the navList or hamburger
+document.addEventListener('click', (e) => {
+  if (navList.classList.contains('active')) {
+    // Check if the click target is NOT inside navList or hamburger
+    if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+      navList.classList.remove('active');
+    }
+  }
+});
+
+
+        </script>
+        
+        <section class="skills-section">
+          <h3 class="h3 skills-title">Skills</h3>
+        
+          <!-- Group 1: Languages, Frameworks & Databases -->
+          <h4 class="h4 skill-subtitle">Languages, Frameworks & Databases</h4>
+          <div class="skills-scroll-wrapper">
+            <div class="skills-scroll-container">
+              <ul class="skills-list">
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/python_5968350.png') }}" alt="Python" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">Python</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/Flask.png') }}" alt="Flask" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">Flask</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/Django.png') }}" alt="Django" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">Django</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/HTML5.png') }}" alt="HTML" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">HTML</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/CSS3.png') }}" alt="CSS" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">CSS</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/JavaScript.png') }}" alt="JavaScript" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">JavaScript</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/MySQL.png') }}" alt="MySQL" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">MySQL</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/PHP.png') }}" alt="PHP" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">PHP</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+        </div>
+          <!-- Group 2: AI Libraries & Tools -->
+          <h4 class="h4 skill-subtitle">AI Libraries & Tools</h4>
+          <div class="skills-scroll-wrapper">
+          <div class="skills-scroll-container">
+          <ul class="skills-list">
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/tensorflow.png') }}" alt="TensorFlow" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">TensorFlow</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/PyTorch.png') }}" alt="PyTorch" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">PyTorch</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/pandas.png') }}" alt="Pandas" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">Pandas</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/icons8-power-bi-logo-50.png') }}" alt="PowerBI" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">PowerBI</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/numpy.png') }}" alt="NumPy" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">NumPy</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/Matplotlib.png') }}" alt="Matplotlib" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">Matplotlib</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/OpenCV.png') }}" alt="OpenCV" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">OpenCV</h4>
+              </div>
+            </li>
+        
+            <li class="skills-item">
+              <div class="content-card">
+                <figure class="skills-avatar-box">
+                  <img src="{{ url_for('static', filename='images/scikit-learn.png') }}" alt="Scikit Learn" width="60" class="skills-icon">
+                </figure>
+                <h4 class="h4 skills-item-title">Scikit Learn</h4>
+              </div>
+            </li>
+          </ul>
+          </div>
+          </div>
+        </section>
+         
+</article>
+
+ 
+  <button id="backToTop" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+    </div>
+
+  </main>
+<script>
+function autoScrollSkills() {
+  const wrapperList = document.querySelectorAll('.skills-scroll-wrapper');
+
+  // Only run on small screens (e.g. max 750px width)
+  if (window.innerWidth > 750) return;
+
+  wrapperList.forEach(wrapper => {
+    const scrollWidth = wrapper.scrollWidth;
+    const clientWidth = wrapper.clientWidth;
+    let scrollPos = 0;
+    let direction = 1; // 1 = scroll right, -1 = scroll left
+    const speed = 1.5;
+    let isPaused = false;
+
+    function step() {
+      if (!isPaused) {
+        scrollPos += direction * speed;
+
+        if (scrollPos >= scrollWidth - clientWidth) {
+          direction = -1;
+        } else if (scrollPos <= 0) {
+          direction = 1;
+        }
+
+        wrapper.scrollLeft = scrollPos;
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Pause on hover or touch
+    wrapper.addEventListener('mouseenter', () => isPaused = true);
+    wrapper.addEventListener('mouseleave', () => isPaused = false);
+    wrapper.addEventListener('touchstart', () => isPaused = true);
+    wrapper.addEventListener('touchend', () => isPaused = false);
+
+    step();
+  });
+}
+
+// Run on load
+window.addEventListener('load', autoScrollSkills);
+</script>
+
+
+  <script>
+  const backToTopBtn = document.getElementById('backToTop');
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+
+  <div class="chat-icon" onclick="toggleChat()">
+    <img src="{{ url_for('static', filename='images/Group 1000005025.svg') }}" alt="Chatbot" />
+
+  </div>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <span>Razal's Assistant</span>
+      <button onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-box" id="chatbox"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+  const chatWindow = document.getElementById("chat-window");
+  chatWindow.classList.toggle("visible");
+}
+
+    function toggleChat() {
+      const widget = document.getElementById('chatWidget');
+      widget.classList.toggle('active');
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class="chat user"><span>You:</span> ${msg}</div>`;
+
+      fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "msg=" + encodeURIComponent(msg)
+      })
+      .then(res => res.json())
+      .then(data => {
+        chatbox.innerHTML += `<div class="chat bot"><span>Bot:</span> ${data.response}</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+        input.value = "";
+      });
+    }
+
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+  <footer class="footer" id="footer">
+  
+    <div class="footer-container">
+  
+      <!-- Left Column -->
+      <div class="footer-left">
+        <h2 style=" color: var(--orange-yellow-crayola);">Razal K R</h2>
+        <p>build smart AI solutions designed to solve real challenges by leveraging the latest advances in machine learning and data science. My mission is to make technology intuitive and accessible, enabling smarter decisions and better outcomes for businesses and communities.</p>
+        <div class="social-icons-inline">
+          <a href="https://wa.me/7025333282" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative2.png') }}" alt="WhatsApp">
+          </a>
+          <a href="https://www.instagram.com/__mr_r_k_r__?igsh=MTk0cTV4cjNjMzZoOQ==" target="_blank">
+            <img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/razal-k-r" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative1.png') }}" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/Razalkr70" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative.png') }}" alt="GitHub">
+          </a>
+        </div>
+      </div>
+  
+      <!-- Center Column -->
+      <div class="footer-center">
+        <h3 style=" color: var(--orange-yellow-crayola);">Contact</h3>
+  
+        <p>
+          <a href="https://www.google.com/maps/place/Thrissur,+Kerala" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/128/484/484167.png" alt="Location Icon" class="contact-icon">
+            Thrissur, Kerala, India
+          </a>
+        </p>
+  
+        <p>
+          <a href="razalkrdeveloper@gmail.com">
+            <img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" alt="Email Icon" class="contact-icon">
+           razalkrdeveloper@gmail.com
+          </a>
+        </p>
+  
+        <p>
+          <a href="tel:+91 8606230949">
+            <img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" alt="Phone Icon" class="contact-icon">
+            +91 8606230949
+          </a>
+        </p>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="footer-right">
+        <h3 style=" color: var(--orange-yellow-crayola);">Quick Links</h3>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+      
+  
+    </div> <!-- footer-container -->
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 RazalKR. All rights reserved.</p>
+    </div>
+  
+  </footer>
+  
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

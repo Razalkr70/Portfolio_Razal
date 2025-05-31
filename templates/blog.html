@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='images/site.webmanifest') }}">
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  <!-- Optional: Fonts/Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/ionicons.min.css" rel="stylesheet">
+
+  <style>
+    /* Simple Modal Styles */
+/* Modal Container */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* Modal Box */
+.modal-content {
+  background-color: #1e1e1e;
+  margin: 5% auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.8;
+  text-align: left; /* ✅ Ensures text is left aligned */
+}
+
+/* Close Button */
+.close-button {
+  color: #bbb;
+  font-size: 26px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #fff;
+}
+
+/* Modal Image */
+.modal img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  max-height: 300px;
+  margin-top: 30px;
+}
+
+/* Headings */
+.modal h2 {
+  margin-top: 0;
+  font-size: 26px;
+  color: #f5ba41;
+  margin-bottom: 10px;
+  text-align: left; /* ✅ Ensure headings are left aligned */
+}
+
+.modal h3 {
+  font-size: 20px;
+  margin: 25px 0 15px;
+  color: #fff;
+  text-align: left; /* ✅ */
+}
+
+/* Paragraph */
+.modal p {
+  font-size: 16px;
+  margin-bottom: 18px;
+  color: #e0e0e0;
+  text-align: left; /* ✅ */
+}
+
+/* Blog Meta */
+.modal .blog-meta {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center; /* Fix invalid align-items: left */
+  justify-content: flex-start;
+}
+
+/* Dot */
+.modal .blog-meta .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #aaa;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px 15px;
+  }
+
+  .modal h2 {
+    font-size: 22px;
+  }
+
+  .modal p {
+    font-size: 15px;
+  }
+}
+
+  </style>
+
+  <!-- External JavaScript -->
+  <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  
+</head>
+<body>
+    <header class="header">
+     <button class="navbar-hamburger" aria-label="Toggle navigation menu">
+      &#9776;  <!-- Unicode hamburger icon -->
+    </button>
+    <div class="profile-section">
+      <img src="{{ url_for('static', filename='images/Group 1000004584.png') }}" alt="Razal K R" class="profile-pic">
+    </div>
+    <h1 class="profile-name">Razal K R</h1>
+    <p class="profile-title">AI Developer</p>
+    <p class="profile-subtext">Building intelligent, user-friendly solutions for the future.</p>
+    <nav class="navbar">
+      
+    <ul class="navbar-list">
+  <li class="navbar-item">
+    <a href="{{ url_for('home') }}" class="navbar-link">About</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('resume') }}" class="navbar-link">Resume</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('projects') }}" class="navbar-link button-link">Projects</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('blog') }}" class="navbar-link button-link">Blog</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('contact') }}" class="navbar-link button-link">Contact</a>
+  </li>
+</ul>
+
+    </nav>
+    
+    </header>
+  <div class="main-content">
+    <article class="blog" data-page="blog">
+      <header>
+        <h2 class="h2 article-title" style="margin-top: 10px;">Blog</h2>
+      </header>
+
+      <section class="blog-posts">
+        <ul class="blog-posts-list">
+          <!-- Loop through all blog posts -->
+       <!-- Blog 1 -->
+<li class="blog-post-item">
+  <a href="javascript:void(0);" class="modalTrigger" data-modal="modal-1">
+    <figure class="blog-banner-box">
+      <img src="{{ url_for('static', filename='images/blog3.jpg') }}" alt="AI in Healthcare" loading="lazy">
+    </figure>
+    <div class="blog-content">
+      <!-- Title First -->
+      <h3 class="h3 blog-item-title">AI Transforming the Future of Healthcare</h3>
+
+      <!-- Meta Row: Date and Category in Same Line -->
+      <div class="blog-meta-row">
+        <time datetime="2025-05-10">May 10, 2025</time>
+        <span class="dot"></span>
+        <p class="blog-category">AI & Healthcare</p>
+      </div>
+
+      <!-- Description -->
+      <p class="blog-text">
+        Discover how AI is revolutionizing diagnostics, treatment plans, and patient care by leveraging deep learning and predictive analytics.
+      </p>
+    </div>
+  </a>
+</li>
+
+
+<!-- Blog 2 -->
+<li class="blog-post-item">
+  <a href="javascript:void(0);" class="modalTrigger" data-modal="modal-2">
+    <figure class="blog-banner-box">
+      <img src="{{ url_for('static', filename='images/blog2.jpg') }}" alt="Emotion Detection" loading="lazy">
+    </figure>
+    <div class="blog-content">
+       <h3 class="h3 blog-item-title">How Emotion Detection is Shaping Smart Surveillance</h3>
+
+    <div class="blog-meta-row">
+       <time datetime="2025-04-15">Apr 15, 2025</time>
+        <span class="dot"></span>
+         <p class="blog-category">Computer Vision</p>
+      </div>
+     
+      <p class="blog-text">Explore how facial emotion recognition helps in crowd monitoring, mental health analysis, and enhancing public safety.</p>
+    </div>
+  </a>
+</li>
+
+<!-- Blog 3 -->
+<li class="blog-post-item">
+  <a href="javascript:void(0);" class="modalTrigger" data-modal="modal-3">
+    <figure class="blog-banner-box">
+      <img src="{{ url_for('static', filename='images/blog1.jpg') }}" alt="Power BI Sales Dashboard" loading="lazy">
+    </figure>
+    <div class="blog-content">
+      <h3 class="h3 blog-item-title">Creating a Dynamic Sales Dashboard with Power BI</h3>
+      <div class="blog-meta-row">
+             <time datetime="2025-03-30">Mar 30, 2025</time>
+        <span class="dot"></span>
+           <p class="blog-category">Data Visualization</p>
+      </div>
+
+      <p class="blog-text">Explore how we designed an interactive Power BI dashboard to visualize sales trends, regional performance, and key metrics in real time.</p>
+    </div>
+  </a>
+</li>
+
+        </ul>
+      </section>
+    </article>
+  </div>
+
+  <div class="chat-icon" onclick="toggleChat()">
+    <img src="{{ url_for('static', filename='images/Group 1000005025.svg') }}" alt="Chatbot" />
+
+  </div>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <span>Razal's Assistant</span>
+      <button onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-box" id="chatbox"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+  const chatWindow = document.getElementById("chat-window");
+  chatWindow.classList.toggle("visible");
+}
+
+    function toggleChat() {
+      const widget = document.getElementById('chatWidget');
+      widget.classList.toggle('active');
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class="chat user"><span>You:</span> ${msg}</div>`;
+
+      fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "msg=" + encodeURIComponent(msg)
+      })
+      .then(res => res.json())
+      .then(data => {
+        chatbox.innerHTML += `<div class="chat bot"><span>Bot:</span> ${data.response}</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+        input.value = "";
+      });
+    }
+
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+  <!-- Modals for all blog posts -->
+ <!-- Modal for Blog 1 -->
+<div id="modal-1" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeModal('modal-1')">&times;</span>
+    <img src="{{ url_for('static', filename='images/blog3.jpg') }}" alt="AI in Healthcare">
+    <h2>AI Transforming the Future of Healthcare</h2>
+    <div class="blog-meta">May 10, 2025 • AI & Healthcare</div>
+    <p>Artificial Intelligence is reshaping the healthcare industry by introducing data-driven approaches to diagnosis, drug discovery, and personalized treatment. With machine learning models analyzing vast datasets, AI aids in early detection of diseases like cancer and Alzheimer’s, potentially saving millions of lives.</p>
+    <p>In the near future, AI-powered wearable devices and virtual assistants could also revolutionize how patients manage chronic conditions and medication schedules.</p>
+  </div>
+</div>
+
+<!-- Modal for Blog 2 -->
+<div id="modal-2" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeModal('modal-2')">&times;</span>
+    <img src="{{ url_for('static', filename='images/blog2.jpg') }}" alt="Emotion Detection">
+    <h2>How Emotion Detection is Shaping Smart Surveillance</h2>
+    <div class="blog-meta">Apr 15, 2025 • Computer Vision</div>
+    <p>Emotion detection systems powered by computer vision and AI are becoming increasingly useful in both public and private sectors. From enhancing safety in events to monitoring employee satisfaction, this tech decodes facial expressions to identify emotional states in real-time.</p>
+    <p>Leveraging tools like OpenCV and CNNs, developers can now build accurate and fast emotion detection systems that contribute to smarter cities and better mental health assessments.</p>
+  </div>
+</div>
+
+<!-- Modal for Blog 3 -->
+<div id="modal-3" class="modal">
+ <div class="modal-content">
+    <span class="close-button" onclick="closeModal('modal-3')">&times;</span>
+    <img src="{{ url_for('static', filename='images/blog1.jpg') }}" alt="Sales Dashboard Project">
+    <h2>Creating a Dynamic Sales Dashboard with Power BI</h2>
+    <div class="blog-meta">Mar 30, 2025 • Data Visualization</div>
+    <p>This blog explores a practical data visualization project where we built a dynamic and interactive Sales Dashboard using Microsoft Power BI. The dashboard effectively displays key performance indicators (KPIs), sales trends, regional performance, and customer insights, providing business leaders with actionable intelligence.</p>
+    <p>We covered data connection from multiple sources (Excel, SQL), Power Query transformations, DAX calculations for metrics, and the design of a user-friendly, visually compelling report. Finally, the dashboard was shared via the Power BI Service for real-time updates and collaboration.</p>
+</div>
+
+</div>
+
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const modals = document.querySelectorAll('.modal');
+    const triggers = document.querySelectorAll('.modalTrigger');
+    const closeButtons = document.querySelectorAll('.close-button');
+
+    // Open the modal when any trigger is clicked
+    triggers.forEach(trigger => {
+      trigger.addEventListener("click", function() {
+        const modalId = this.getAttribute("data-modal");
+        const modal = document.getElementById(modalId);
+        modal.style.display = "block";
+
+        // Prevent background scrolling
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    // Close the modal when the close button is clicked
+    closeButtons.forEach(button => {
+      button.addEventListener("click", function() {
+        const modal = this.closest('.modal');
+        modal.style.display = "none";
+
+        // Re-enable background scrolling
+        document.body.style.overflow = "";
+      });
+    });
+
+    // Close the modal if the user clicks outside of it
+    window.addEventListener("click", function(event) {
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+
+          // Re-enable background scrolling
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  });
+
+
+        const hamburger = document.querySelector('.navbar-hamburger');
+const navList = document.querySelector('.navbar-list');
+
+hamburger.addEventListener('click', (e) => {
+  navList.classList.toggle('active');
+  e.stopPropagation(); // Prevent click from bubbling up to document
+});
+
+// Close nav if clicking outside the navList or hamburger
+document.addEventListener('click', (e) => {
+  if (navList.classList.contains('active')) {
+    // Check if the click target is NOT inside navList or hamburger
+    if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+      navList.classList.remove('active');
+    }
+  }
+});
+
+  </script>
+ <footer class="footer" id="footer">
+  
+    <div class="footer-container">
+  
+      <!-- Left Column -->
+      <div class="footer-left">
+        <h2 style=" color: var(--orange-yellow-crayola);">Razal K R</h2>
+        <p>build smart AI solutions designed to solve real challenges by leveraging the latest advances in machine learning and data science. My mission is to make technology intuitive and accessible, enabling smarter decisions and better outcomes for businesses and communities.</p>
+        <div class="social-icons-inline">
+          <a href="https://wa.me/7025333282" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative2.png') }}" alt="WhatsApp">
+          </a>
+          <a href="https://www.instagram.com/__mr_r_k_r__?igsh=MTk0cTV4cjNjMzZoOQ==" target="_blank">
+            <img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/razal-k-r" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative1.png') }}" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/Razalkr70" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative.png') }}" alt="GitHub">
+          </a>
+        </div>
+      </div>
+  
+      <!-- Center Column -->
+      <div class="footer-center">
+        <h3 style=" color: var(--orange-yellow-crayola);">Contact</h3>
+  
+        <p>
+          <a href="https://www.google.com/maps/place/Thrissur,+Kerala" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/128/484/484167.png" alt="Location Icon" class="contact-icon">
+            Thrissur, Kerala, India
+          </a>
+        </p>
+  
+        <p>
+          <a href="razalkrdeveloper@gmail.com">
+            <img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" alt="Email Icon" class="contact-icon">
+           razalkrdeveloper@gmail.com
+          </a>
+        </p>
+  
+        <p>
+          <a href="tel:+91 8606230949">
+            <img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" alt="Phone Icon" class="contact-icon">
+            +91 8606230949
+          </a>
+        </p>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="footer-right">
+        <h3 style=" color: var(--orange-yellow-crayola);">Quick Links</h3>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+      
+  
+    </div> <!-- footer-container -->
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 RazalKR. All rights reserved.</p>
+    </div>
+  
+  </footer>
+</body>
+</html>

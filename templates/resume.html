@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Resume</title>
+  <!-- Add your external stylesheets or internal styles here -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+ 
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='images/site.webmanifest') }}">
+
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+<!-- Ionicons CDN -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Optional: Add fonts or icons like Ionicons or FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/ionicons.min.css" rel="stylesheet">
+
+  
+</head>
+
+<body>
+ <header class="header">
+     <button class="navbar-hamburger" aria-label="Toggle navigation menu">
+      &#9776;  <!-- Unicode hamburger icon -->
+    </button>
+    <div class="profile-section">
+      <img src="{{ url_for('static', filename='images/Group 1000004584.png') }}" alt="Razal K R" class="profile-pic">
+    </div>
+    <h1 class="profile-name">Razal K R</h1>
+    <p class="profile-title">AI Developer</p>
+    <p class="profile-subtext">Building intelligent, user-friendly solutions for the future.</p>
+    <nav class="navbar">
+      
+    <ul class="navbar-list">
+  <li class="navbar-item">
+   <a href="{{ url_for('home') }}" class="navbar-link">About</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('resume') }}" class="navbar-link">Resume</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('projects') }}" class="navbar-link button-link">Projects</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('blog') }}" class="navbar-link button-link">Blog</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('contact') }}" class="navbar-link button-link">Contact</a>
+  </li>
+</ul>
+
+    </nav>
+    
+    </header>
+  <div class="main-content">
+  <article class="resume" data-page="resume">
+   
+    <div>
+      <h2 class="h2 article-title">Resume</h2>
+    </div>
+
+    <!-- Education Section -->
+    <section class="timeline-resume">
+      <div class="title-wrapper">
+        <div class="icon-box">
+          <ion-icon name="book-outline"></ion-icon>
+        </div>
+        <h3 class="h3" style="font-size:1.4rem">Education</h3>
+      </div>
+    
+      <ol class="timeline-list">
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title"style="font-size:1.2rem">APJ Abdul Kalam Technological University, Kerala</h4>
+          <span>2020 — 2024</span>
+          <p class="timeline-text"style=" margin-top: 0.8rem;line-height: 1.5rem; font-size: 0.9rem;">
+            Bachelor of Technology in Artificial Intelligence and Data Science.
+          </p>
+        </li>
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title"style="font-size:1.2rem">Concord English Higher Secondary School</h4>
+          <span>2018 — 2020</span>
+           <p class="timeline-text" style=" margin-top: 0.8rem;line-height: 1.5rem; font-size: 0.9rem;">
+            Higher Secondary Education with a focus on Computer Science.
+          </p>
+        </li>
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title"style="font-size:1.2rem">Ansar English School, Perumpilavu</h4>
+          <span>Up to 2018</span>
+          <p class="timeline-text" style=" margin-top: 0.8rem;line-height: 1.5rem; font-size: 0.9rem;">
+            High School Education.
+          </p>
+        </li>
+      </ol>
+    </section>
+    
+    <!-- Experience Section -->
+    <section class="timeline-resume">
+      <div class="title-wrapper">
+        <div class="icon-box">
+          <ion-icon name="briefcase-outline"></ion-icon>
+        </div>
+        <h3 class="h3"style="font-size:1.4rem">Experience</h3>
+      </div>
+    
+      <ol class="timeline-list">
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title"style="font-size:1.2rem">Junior Software Engineer</h4>
+         
+          <span>October 2024 — January 2025</span>
+            <p class="company-name"style="margin-top: 1rem;  font-weight: 600;">Dhooma Technologies Pvt. Ltd., Kozhikode</p>
+           <p class="timeline-text" style="margin-top: 0.8rem;line-height: 1.5rem; font-size: 0.9rem;">
+            Developed and maintained Python-based applications. Involved in full-stack development, bug fixing, and performance improvements of web-based projects.
+          </p>
+        </li>
+    
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title"style="font-size:1.2rem">Data Scientist</h4>
+        
+          <span>March 2024 — Present</span>
+            <p class="company-name"style="margin-top: 1rem;  font-weight: 600;">Softroniics, Perinthalmanna</p>
+          <p class="timeline-text" style="margin-top: 0.8rem;line-height: 1.5rem; font-size: 0.9rem;">
+            Working on machine learning and deep learning projects involving data preprocessing, model development, evaluation, and deployment for production-level use cases.
+          </p>
+        </li>
+      </ol>
+    </section>
+   <!-- Skills Section -->
+    
+<section class="skill1">
+     <div class="title-wrapper">
+        <!-- <div class="icon-box">
+       <ion-icon name="construct-outline"></ion-icon>
+
+        </div> -->
+        <h3 class="h3" style="font-size:1.4rem;margin-bottom: 40px;">Skills</h3>
+      </div>
+
+      
+  <div class="skill1-slider-wrapper">
+  <ul class="skill1-list content-card">
+    <!-- Python Skill -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Python</h5>
+       
+      </div>
+      <div class="skill1-progress-bg"style="margin-bottom:6px">
+        <div class="skill1-progress-fill" style="width: 90%; "></div>
+      </div>
+    </li>
+
+    <!-- HTML Skill -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">HTML</h5>
+        
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 85%;"></div>
+      </div>
+    </li>
+
+    <!-- SQL Skill -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">SQL</h5>
+     
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 80%;"></div>
+      </div>
+    </li>
+
+    <!-- Django Skill -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Django</h5>
+
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 75%;"></div>
+      </div>
+    </li>
+
+    <!-- Flask Skill -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Flask</h5>
+    
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 70%;"></div>
+      </div>
+    </li>
+
+    <!-- Problem Solving -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Problem Solving</h5>
+      
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 85%;"></div>
+      </div>
+    </li>
+
+    <!-- Team Collaboration -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">PowerBI</h5>
+
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 80%;"></div>
+      </div>
+    </li>
+
+    <!-- Communication -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Communication</h5>
+     
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 90%;"></div>
+      </div>
+    </li>
+
+    <!-- Shopify -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Shopify</h5>
+  
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 70%;"></div>
+      </div>
+    </li>
+
+    <!-- Scikit-learn -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">Scikit-learn</h5>
+      
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 80%;"></div>
+      </div>
+    </li>
+
+    <!-- TensorFlow -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">TensorFlow</h5>
+       
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 75%;"></div>
+      </div>
+    </li>
+
+    <!-- OpenCV -->
+    <li class="skill1-item">
+      <div class="title-wrapper">
+        <h5 class="h5"style="margin-bottom:20px;margin-top:4px">OpenCV</h5>
+
+      </div>
+      <div class="skill1-progress-bg">
+        <div class="skill1-progress-fill" style="width: 70%;"></div>
+      </div>
+    </li>
+
+  </ul>
+    <div class="skill1-dots"></div>
+  </div>
+</section>
+
+<div style="text-align: center;">
+<a href="{{ url_for('static', filename='files/razal resume 1.pdf') }}" download class="download-btn">
+  <ion-icon name="download-outline"></ion-icon>
+  Download Resume
+</a>
+</div>
+
+  </article>
+  </div>
+  
+  
+  <div class="chat-icon" onclick="toggleChat()">
+    <img src="{{ url_for('static', filename='images/Group 1000005025.svg') }}" alt="Chatbot" />
+
+  </div>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <span>Razal's Assistant</span>
+      <button onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-box" id="chatbox"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const skillList = document.querySelector('.skill1-list');
+  const allItems = Array.from(skillList.children);
+  const dotsContainer = document.querySelector('.skill1-dots');
+  const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+  if (!isMobile) return;
+
+  // Rebuild into slides of 3
+  const slides = [];
+  skillList.innerHTML = '';
+  for (let i = 0; i < allItems.length; i += 3) {
+    const slide = document.createElement('li');
+    slide.classList.add('skill1-slide');
+    slide.style.display = 'flex';
+    slide.style.flexDirection = 'column';
+    slide.style.gap = '1.5rem';
+    slide.style.flex = '0 0 100%';
+    slide.style.boxSizing = 'border-box';
+
+    if (allItems[i]) slide.appendChild(allItems[i]);
+    if (allItems[i + 1]) slide.appendChild(allItems[i + 1]);
+    if (allItems[i + 2]) slide.appendChild(allItems[i + 2]);
+
+    slides.push(slide);
+    skillList.appendChild(slide);
+  }
+
+  // Add dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.dataset.index = index;
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+      resetInterval();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  let currentIndex = 0;
+  const slideCount = slides.length;
+
+  function goToSlide(index) {
+    const offset = -index * 100;
+    skillList.style.transform = `translateX(${offset}%)`;
+    currentIndex = index;
+
+    // Update dots
+    document.querySelectorAll('.carousel-dot').forEach(dot => dot.classList.remove('active'));
+    if (dotsContainer.children[index]) {
+      dotsContainer.children[index].classList.add('active');
+    }
+  }
+
+  function nextSlide() {
+    const nextIndex = (currentIndex + 1) % slideCount;
+    goToSlide(nextIndex);
+  }
+
+  let autoSlideInterval = setInterval(nextSlide, 3000); // Change every 3 seconds
+
+  function resetInterval() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 3000);
+  }
+});
+</script>
+
+<script>
+    function toggleChat() {
+  const chatWindow = document.getElementById("chat-window");
+  chatWindow.classList.toggle("visible");
+}
+
+    function toggleChat() {
+      const widget = document.getElementById('chatWidget');
+      widget.classList.toggle('active');
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class="chat user"><span>You:</span> ${msg}</div>`;
+
+      fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "msg=" + encodeURIComponent(msg)
+      })
+      .then(res => res.json())
+      .then(data => {
+        chatbox.innerHTML += `<div class="chat bot"><span>Bot:</span> ${data.response}</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+        input.value = "";
+      });
+    }
+
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    
+
+       const hamburger = document.querySelector('.navbar-hamburger');
+const navList = document.querySelector('.navbar-list');
+
+hamburger.addEventListener('click', (e) => {
+  navList.classList.toggle('active');
+  e.stopPropagation(); // Prevent click from bubbling up to document
+});
+
+// Close nav if clicking outside the navList or hamburger
+document.addEventListener('click', (e) => {
+  if (navList.classList.contains('active')) {
+    // Check if the click target is NOT inside navList or hamburger
+    if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+      navList.classList.remove('active');
+    }
+  }
+});
+
+  </script>
+ <footer class="footer" id="footer">
+  
+    <div class="footer-container">
+  
+      <!-- Left Column -->
+      <div class="footer-left">
+        <h2 style=" color: var(--orange-yellow-crayola);">Razal K R</h2>
+        <p>build smart AI solutions designed to solve real challenges by leveraging the latest advances in machine learning and data science. My mission is to make technology intuitive and accessible, enabling smarter decisions and better outcomes for businesses and communities.</p>
+        <div class="social-icons-inline">
+          <a href="https://wa.me/7025333282" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative2.png') }}" alt="WhatsApp">
+          </a>
+          <a href="https://www.instagram.com/__mr_r_k_r__?igsh=MTk0cTV4cjNjMzZoOQ==" target="_blank">
+            <img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/razal-k-r" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative1.png') }}" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/Razalkr70" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative.png') }}" alt="GitHub">
+          </a>
+        </div>
+      </div>
+  
+      <!-- Center Column -->
+      <div class="footer-center">
+        <h3 style=" color: var(--orange-yellow-crayola);">Contact</h3>
+  
+        <p>
+          <a href="https://www.google.com/maps/place/Thrissur,+Kerala" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/128/484/484167.png" alt="Location Icon" class="contact-icon">
+            Thrissur, Kerala, India
+          </a>
+        </p>
+  
+        <p>
+          <a href="razalkrdeveloper@gmail.com">
+            <img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" alt="Email Icon" class="contact-icon">
+           razalkrdeveloper@gmail.com
+          </a>
+        </p>
+  
+        <p>
+          <a href="tel:+91 8606230949">
+            <img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" alt="Phone Icon" class="contact-icon">
+            +91 8606230949
+          </a>
+        </p>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="footer-right">
+        <h3 style=" color: var(--orange-yellow-crayola);">Quick Links</h3>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+      
+  
+    </div> <!-- footer-container -->
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 RazalKR. All rights reserved.</p>
+    </div>
+  
+  </footer>
+</body>
+
+</html>

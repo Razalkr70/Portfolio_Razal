@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Razal - Projects</title>
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='images/site.webmanifest') }}">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+ 
+  <!-- SwiperJS for carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- lightGallery for zoom effect -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+  
+</head>
+
+<body>
+
+<header class="header">
+     <button class="navbar-hamburger" aria-label="Toggle navigation menu">
+      &#9776;  <!-- Unicode hamburger icon -->
+    </button>
+    <div class="profile-section">
+      <img src="{{ url_for('static', filename='images/Group 1000004584.png') }}" alt="Razal K R" class="profile-pic">
+    </div>
+    <h1 class="profile-name">Razal K R</h1>
+    <p class="profile-title">AI Developer</p>
+    <p class="profile-subtext">Building intelligent, user-friendly solutions for the future.</p>
+    <nav class="navbar">
+      
+    <ul class="navbar-list">
+  <li class="navbar-item">
+    <a href="{{ url_for('home') }}" class="navbar-link">About</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('resume') }}" class="navbar-link">Resume</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('projects') }}" class="navbar-link button-link">Projects</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('blog') }}" class="navbar-link button-link">Blog</a>
+  </li>
+
+  <li class="navbar-item">
+    <a href="{{ url_for('contact') }}" class="navbar-link button-link">Contact</a>
+  </li>
+</ul>
+
+    </nav>
+    
+    </header>
+ 
+    <div class="main-content">
+      <article class="portfolio" data-page="portfolio">
+        <header>
+          <h2 class="h2 article-title">My Projects</h2>
+        </header>
+  
+        <section class="projects">
+          <!-- Filter Buttons -->
+           
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="computer vision">Computer Vision</button>
+            <button class="filter-btn" data-filter="data science">Data Science</button>
+            <button class="filter-btn" data-filter="natural language processing">NLP</button>
+          </div>
+  
+          <!-- Projects List -->
+         <ul class="project-list">
+    <!-- Project 1: Crowd Facial Emotion Detection -->
+    <li class="project-item" data-category="computer vision" onclick="openModal('project1')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/crowd.jpg') }}');"></div>
+      <h3 class="project-title">Crowd Facial Emotion Detection</h3>
+      <p class="project-category">Computer Vision</p>
+    </li>
+
+    <!-- Project 2: Emotion Based Music Recommender -->
+    <li class="project-item" data-category="computer vision" onclick="openModal('project2')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/music.jpg') }}');"></div>
+      <h3 class="project-title">Emotion Based Music Recommender</h3>
+      <p class="project-category">Computer Vision</p>
+    </li>
+
+    <!-- Project 3: MCQ Generator -->
+    <li class="project-item" data-category="natural language processing" onclick="openModal('project3')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/mcq2.jpg') }}');"></div>
+      <h3 class="project-title">MCQ Generator</h3>
+      <p class="project-category">NLP</p>
+    </li>
+
+    <!-- Project 4: Emotion Based Story Recommender -->
+    <li class="project-item" data-category="computer vision" onclick="openModal('project4')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/story.jpg') }}');"></div>
+      <h3 class="project-title">Emotion Based Story Recommender</h3>
+      <p class="project-category">Computer Vision</p>
+    </li>
+
+    <!-- Project 5: Customer Segmentation -->
+    <li class="project-item" data-category="data science" onclick="openModal('project5')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/customer.jpg') }}');"></div>
+      <h3 class="project-title">Customer Segmentation</h3>
+      <p class="project-category">Data Science</p>
+    </li>
+
+    <!-- Project 6: VoiceBot -->
+    <li class="project-item" data-category="natural language processing" onclick="openModal('project6')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/hospital1.jpg') }}');"></div>
+      <h3 class="project-title">VoiceBot</h3>
+      <p class="project-category">NLP</p>
+    </li>
+
+    <!-- Project 7: AI Thought Bubble Generator -->
+    <li class="project-item" data-category="computer vision" onclick="openModal('project7')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/thought.jpg') }}');"></div>
+      <h3 class="project-title">AI Thought Bubble Generator</h3>
+      <p class="project-category">Computer Vision</p>
+    </li>
+
+    <!-- Project 8: Fruits Classifier -->
+    <li class="project-item" data-category="data science" onclick="openModal('project8')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/stock.jpg') }}');"></div>
+      <h3 class="project-title">Stock Market Prediction</h3>
+      <p class="project-category">Data Science</p>
+    </li>
+
+    <!-- Project 9: Sales Dashboard -->
+    <li class="project-item" data-category="data science" onclick="openModal('project9')">
+      <div class="project-img" style="background-image: url('{{ url_for('static', filename='images/dashboard.jpg') }}');"></div>
+      <h3 class="project-title">Sales Dashboard</h3>
+      <p class="project-category">PowerBI</p>
+    </li>
+  </ul>
+  <div class="pagination" id="pagination">
+  <button onclick="changePage(-1)" id="prevBtn">Previous</button>
+  <button onclick="changePage(1)" id="nextBtn">Next</button>
+</div>
+
+        </section>
+    <div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    
+    
+    <img id="modalImage" alt="Project Image" class="modal-image" />
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+
+    <!-- Flex container for buttons -->
+    <div class="modal-buttons">
+     <button id="screenshotBtn" class="stroke-button" onclick="openScreenshotModal()">Screenshots</button>
+       <a href="#" id="modalLink" class="github-button" target="_blank">Go To GitHub</a>
+    </div>
+  </div>
+</div>
+<div id="screenshotModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeScreenshotModal()">&times;</span>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper" id="screenshotSwiperWrapper">
+        <!-- Slides will be added by JS -->
+      </div>
+
+      <!-- Swiper Controls -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+      </article>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectItems = document.querySelectorAll(".project-item");
+    
+        filterButtons.forEach(button => {
+          button.addEventListener("click", () => {
+            const filter = button.getAttribute("data-filter");
+    
+            // Remove "active" class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            // Add "active" to clicked button
+            button.classList.add("active");
+    
+            // Show/Hide projects based on filter
+            projectItems.forEach(item => {
+              const category = item.getAttribute("data-category").toLowerCase();
+    
+              if (filter === "all" || category.includes(filter)) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+
+
+
+          const hamburger = document.querySelector('.navbar-hamburger');
+const navList = document.querySelector('.navbar-list');
+
+hamburger.addEventListener('click', (e) => {
+  navList.classList.toggle('active');
+  e.stopPropagation(); // Prevent click from bubbling up to document
+});
+
+// Close nav if clicking outside the navList or hamburger
+document.addEventListener('click', (e) => {
+  if (navList.classList.contains('active')) {
+    // Check if the click target is NOT inside navList or hamburger
+    if (!navList.contains(e.target) && !hamburger.contains(e.target)) {
+      navList.classList.remove('active');
+    }
+  }
+});
+
+    </script>
+ 
+<script>
+  // Modal Data for Projects
+  const projectData = {
+    project1: {
+      title: "Crowd Facial Emotion Detection",
+      image: "{{ url_for('static', filename='images/crowd.jpg') }}",
+      description: "This project leverages advanced techniques in computer vision, deep learning, and machine learning to analyze and interpret the emotional state of a crowd in real-time. Using a camera system, facial expressions within the crowd are captured and processed using Convolutional Neural Networks (CNNs), which are trained to detect emotions such as happiness, anger, sadness, and surprise. CNNs are highly effective for image recognition tasks, making them the ideal choice for facial emotion detection.The system processes the captured data using pre-trained models and transfer learning, which allows the system to adapt quickly and effectively to various environments. It employs image preprocessing techniques like face detection and feature extraction to ensure high accuracy in emotion recognition.Real-time data analysis is facilitated by Python and libraries like OpenCV and TensorFlow, ensuring fast and efficient processing of visual inputs. The system analyzes the emotional state of the crowd over short intervals (2-5 minutes) and generates feedback on crowd behavior, offering insights into the overall mood and emotional shifts during events. This technology has a wide range of applications, including event management, where it can monitor crowd moods and ensure a smooth event experience, public safety in places like airports or stadiums by detecting potential threats through emotional shifts, and customer sentiment analysis to gauge reactions in retail environments, enabling more effective marketing strategies. Additionally, it can be used in human-computer interaction to tailor responses in customer service systems based on emotional feedback, enhancing user experience across various industries.",
+      githubLink: "https://github.com/Razalkr70/crowd-facial-emotion-detection-using-CNN",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project2: {
+      title: "Emotion Based Music Recommender",
+      image: "{{ url_for('static', filename='images/music.jpg') }}",
+      description: "This project utilizes Computer Vision and Machine Learning to recommend songs based on the user’s emotional state. The process starts with capturing the user's facial expression through a camera. The system uses a Convolutional Neural Network (CNN) to analyze the facial features and detect emotions such as happiness, sadness, anger, and surprise.Once the emotion is identified, the system communicates with the YouTube Data API to retrieve a list of songs that align with the user's detected emotion. A clickable link is then provided, allowing the user to listen to the recommended songs directly on YouTube.This project demonstrates the integration of AI-powered emotion recognition with real-time media recommendations, offering potential applications in personalized music playlists, mental health support, and interactive entertainment systems.",
+      githubLink: "https://github.com/Razalkr70/Emotion-Music-Recommendation",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project3: {
+      title: "MCQ Generator",
+      image: "{{ url_for('static', filename='images/mcq2.jpg') }}",
+      description: "The MCQ Generator is a Flask-based web application designed to automate the creation of multiple-choice questions (MCQs) from various types of text input, including URLs, manually entered text, and file uploads (PDF/TXT). The application leverages advanced Natural Language Processing (NLP) techniques using spaCy to process the input text, identifying key concepts, phrases, and sentence structures. It then employs an LSTM (Long Short-Term Memory) model built with TensorFlow/Keras to further understand the text and generate relevant MCQs. Users can select the number of questions to generate, view the results with the correct answers, and download the MCQs as a PDF using ReportLab. The user interface is designed with Bootstrap for responsiveness, ensuring ease of use on both desktop and mobile devices. This tool is particularly beneficial for educators, students, and content creators, streamlining the quiz creation process and enhancing efficiency. The project combines AI, Deep Learning, and NLP to offer a practical solution in the realm of automated quiz generation, with real-world applications in e-learning platforms, content-driven education tools, and AI-powered assessments.",
+      githubLink: "https://github.com/Razalkr70/MCQ-Generator",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project4: {
+      title: "Emotion Based Story Recommender",
+      image: "{{ url_for('static', filename='images/story.jpg') }}",
+      description: "The Emotion-Based Story Recommender is a dynamic system that utilizes Computer Vision and Machine Learning to recommend personalized stories based on the user’s emotional state. The process begins by capturing the user's facial expression through a camera, where Convolutional Neural Networks (CNN) are used to analyze the facial features and identify emotions like happiness, sadness, anger, surprise, etc. After detecting the emotion, the system communicates with a database or an API that hosts a collection of stories categorized by themes or emotional tones. Based on the detected emotion, the system matches the appropriate stories to the user’s emotional state and presents them with personalized recommendations. This project incorporates deep learning for emotion recognition, NLP for text-based story classification, and real-time media recommendations, creating an interactive experience for the user. The recommender could be further enhanced with a feedback mechanism to refine future story suggestions. Potential real-world applications include personalized content delivery in mental health platforms, interactive learning environments, and entertainment systems where emotional engagement is essential. By leveraging AI-driven emotion analysis, this project exemplifies how emotion-aware systems can enhance user experiences in real-time, offering a more immersive and emotionally intelligent interaction.",
+      githubLink: "https://github.com/Razalkr70/emotion-story-recommender",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project5: {
+      title: "Customer Segmentation",
+      image: "{{ url_for('static', filename='images/customer.jpg') }}",
+      description: "The Customer Segmentation project uses Data Science and Machine Learning to classify customers into distinct segments based on their purchasing behaviors and demographic data. The goal is to identify groups of customers who share similar characteristics, allowing businesses to tailor their marketing strategies and product offerings accordingly. The project employs unsupervised learning techniques such as K-means clustering to cluster customers into different segments, based on features like age, income, spending habits, and purchase frequency. The dataset is pre-processed using Pandas for data cleaning and feature engineering, while Scikit-learn is used to implement the machine learning models. Visualization libraries such as Matplotlib and Seaborn are employed to create insightful visualizations of the segments, providing a clear understanding of customer distribution. The model outputs clusters that represent various customer groups, which can be used to create personalized marketing campaigns, optimize inventory management, and improve customer retention strategies. This project is highly valuable for businesses in e-commerce, retail, and customer relationship management (CRM), where understanding customer segments can lead to better decision-making and more effective targeting.",
+      githubLink: "https://github.com/Razalkr70/Customer-Segmentation-using-dataset",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project6: {
+      title: "VoiceBot",
+      image: "{{ url_for('static', filename='images/hospital1.jpg') }}",
+      description: "The VoiceBot project is designed to serve as an intelligent \
+      virtual assistant within a hospital setting, focusing on providing seamless interactions in the native language. Leveraging Natural Language Processing (NLP) and Speech Recognition technologies, this voice-based assistant allows hospital staff and patients to interact with the system using voice commands in their native language. The system is powered by Python libraries such as SpeechRecognition for speech-to-text conversion, spaCy for NLP tasks, and TensorFlow for any deep learning-based language processing.The assistant can perform tasks such as scheduling appointments, providing patient information, answering common queries related to hospital services, and helping with administrative tasks like room assignments. It also integrates with hospital management systems to assist in real-time data retrieval, providing relevant medical information and guiding staff through operational processes.The VoiceBot's ability to understand and process commands in the local language enhances its accessibility, ensuring that hospital staff and patients who might not be fluent in other languages can still effectively use it. This project is aimed at improving hospital efficiency, reducing the workload on administrative staff, and creating a more intuitive, interactive experience for patients, especially in emergency situations or for non-tech-savvy individuals. The application of AI in this context demonstrates the growing potential of voice-enabled AI systems in healthcare settings, contributing to enhanced patient care and streamlined hospital operations.",
+      githubLink: "https://github.com/Razalkr70/Voice-Bot-in-Native-Language",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project7: {
+      title: "AI Thought Bubble Generator",
+      image: "{{ url_for('static', filename='images/thought.jpg') }}",
+      description: "The AI Thought Bubble Generator is an innovative image augmentation tool that combines Computer Vision, Natural Language Processing (NLP), and image manipulation techniques to enhance user-provided images with AI-generated content. The workflow begins with face detection using Haar Cascades or other deep learning-based algorithms (e.g., MTCNN, Dlib) to accurately locate the head or facial region within an image. Once detected, a thought bubble graphic is dynamically overlaid above the head using OpenCV, ensuring natural positioning and scaling based on facial dimensions.Inside the thought bubble, a short, randomly generated sentence is placed. This text is produced using Natural Language Generation (NLG) models such as GPT-based APIs or rule-based generators, which create phrases that are humorous, expressive, or imaginative. Users also have the flexibility to input custom text if preferred. The final output is a composited image that appears as if the subject is  the displayed text.This project demonstrates an engaging use of AI-driven creativity, merging visual processing and generative language models. It finds real-world applications in digital storytelling, educational content creation, social media personalization, and interactive art platforms, making it a fun and technically rich tool for visual expression.",
+      githubLink: "https://github.com/Razalkr70/Thought-Bubble-Generator-on-Image",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project8: {
+      title: "Stock Market Prediction",
+      image: "{{ url_for('static', filename='images/stock.jpg') }}",
+      description: "The Stock Market Prediction project aims to forecast stock prices using historical data retrieved through the Yahoo Finance (yfinance) API. The application utilizes machine learning models, such as Long Short-Term Memory (LSTM) networks, to capture the temporal dependencies in stock price movements. After preprocessing steps like handling missing values, scaling data with MinMaxScaler, and structuring time series windows, the model is trained on historical closing prices to predict future trends. The system generates predictions for the next 10 days and next 1 day, which are visualized using Matplotlib and Seaborn for intuitive interpretation. Multiple plots are included: (1) a closing price plot showing the overall trend, (2) a moving average plot to smooth fluctuations and highlight patterns, and (3) a comparison graph of actual vs. predicted prices to evaluate model performance. This project integrates deep learning with financial data analysis and showcases how AI can be applied in algorithmic trading, investment strategy planning, and risk management.",
+      githubLink: "https://github.com/Razalkr70/Stock-Market-Prediction",
+      screenshots: [
+      "{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+       ]
+    },
+    project9: {
+      title: "Sales Dashboard",
+      image: "{{ url_for('static', filename='images/dashboard.jpg') }}",
+      description: "A business intelligence dashboard built using PowerBI to track sales data and trends.This project involves building an interactive sales performance dashboard using Microsoft Power BI. By importing sales data from an Excel file, the dashboard visually showcases key business metrics such as total sales, profit, and quantity sold using card visuals. Users can filter the data by date, category, region, and customer type through slicers. Various charts—including line charts for sales trends, bar charts for top products, donut charts for regional sales, and stacked column charts for customer type analysis—provide comprehensive insights into business performance. This dashboard empowers decision-makers to analyze trends, identify opportunities, and make informed business decisions.",
+      githubLink: "https://github.com/Razalkr70/Sales-Customer-Behavior-Dashboard-using-PowerBI",
+      screenshots: ["{{ url_for('static', filename='images/screenshots/emotion.PNG') }}",
+      "{{ url_for('static', filename='images/screenshots/emotion1.PNG') }}"
+        ]
+    }
+  };
+// Open Modal Function
+function openModal(projectKey) {
+  const project = projectData[projectKey];
+  window.currentProject = projectKey;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalImage").src = project.image;
+  document.getElementById("modalDescription").textContent = project.description;
+  document.getElementById("modalLink").href = project.githubLink;
+  document.getElementById("projectModal").style.display = "block";
+
+  // Prevent background scrolling
+  document.body.style.overflow = "hidden";
+}
+
+// Close Modal Function
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+
+  // Re-enable background scrolling
+  document.body.style.overflow = "";
+}
+
+// Close modal when clicking outside content
+document.getElementById("projectModal").addEventListener("click", function(event) {
+  const modalContent = document.querySelector("#projectModal .modal-content");
+  if (!modalContent.contains(event.target)) {
+    closeModal();
+  }
+});
+
+</script>
+<script>
+let activeScreenshots = [];
+
+function openScreenshotModal() {
+  const currentProjectKey = window.currentProject; // set this when opening project modal
+  const screenshots = projectData[currentProjectKey].screenshots;
+  const wrapper = document.getElementById("screenshotSwiperWrapper");
+
+  // Clear previous slides
+  wrapper.innerHTML = "";
+
+  // Create slides
+  screenshots.forEach((src, i) => {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
+    slide.innerHTML = `
+      <a href="${src}" class="lightgallery-slide" data-lg-size="1600-900">
+        <img src="${src}" alt="Screenshot ${i + 1}" style="width:100%; border-radius: 10px;" loading="lazy"/>
+      </a>
+    `;
+    wrapper.appendChild(slide);
+  });
+
+  // Init Swiper
+  if (window.swiperInstance) window.swiperInstance.destroy(true, true);
+
+  window.swiperInstance = new Swiper('.mySwiper', {
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
+
+  // Init lightGallery
+  const swiperEl = document.querySelector(".mySwiper");
+  lightGallery(swiperEl, {
+    selector: ".lightgallery-slide",
+    plugins: [lgZoom],
+    zoom: true,
+    download: false
+  });
+  
+  // Show modal
+  document.getElementById("screenshotModal").style.display = "block";
+}
+
+function closeScreenshotModal() {
+  document.getElementById("screenshotModal").style.display = "none";
+}
+</script>
+<script>
+  const itemsPerPage = 3;
+  let currentPage = 1;
+
+  function updateProjects() {
+    const allProjects = document.querySelectorAll('.project-item');
+    const totalItems = allProjects.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    // Hide all
+    allProjects.forEach(item => item.classList.remove('show'));
+
+    // Show current page items
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    for (let i = start; i < end && i < totalItems; i++) {
+      allProjects[i].classList.add('show');
+    }
+
+    // Update button states
+    document.getElementById('prevBtn').disabled = currentPage === 1;
+    document.getElementById('nextBtn').disabled = currentPage === totalPages;
+  }
+
+  function changePage(direction) {
+    currentPage += direction;
+    updateProjects();
+  }
+
+  // Initialize on load for mobile
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 765) {
+      updateProjects();
+    }
+  });
+
+  // Optional: Update pagination on resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 765) {
+      updateProjects();
+    }
+  });
+</script>
+
+    </article>
+  </div>
+
+  
+  <div class="chat-icon" onclick="toggleChat()">
+    <img src="{{ url_for('static', filename='images/Group 1000005025.svg') }}" alt="Chatbot" />
+
+  </div>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <span>Razal's Assistant</span>
+      <button onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-box" id="chatbox"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+  const chatWindow = document.getElementById("chat-window");
+  chatWindow.classList.toggle("visible");
+}
+
+    function toggleChat() {
+      const widget = document.getElementById('chatWidget');
+      widget.classList.toggle('active');
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class="chat user"><span>You:</span> ${msg}</div>`;
+
+      fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "msg=" + encodeURIComponent(msg)
+      })
+      .then(res => res.json())
+      .then(data => {
+        chatbox.innerHTML += `<div class="chat bot"><span>Bot:</span> ${data.response}</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+        input.value = "";
+      });
+    }
+
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") sendMessage();
+    });
+  </script>
+ <footer class="footer" id="footer">
+  
+    <div class="footer-container">
+  
+      <!-- Left Column -->
+      <div class="footer-left">
+        <h2 style=" color: var(--orange-yellow-crayola);">Razal K R</h2>
+        <p>build smart AI solutions designed to solve real challenges by leveraging the latest advances in machine learning and data science. My mission is to make technology intuitive and accessible, enabling smarter decisions and better outcomes for businesses and communities.</p>
+        <div class="social-icons-inline">
+          <a href="https://wa.me/7025333282" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative2.png') }}" alt="WhatsApp">
+          </a>
+          <a href="https://www.instagram.com/__mr_r_k_r__?igsh=MTk0cTV4cjNjMzZoOQ==" target="_blank">
+            <img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram">
+          </a>
+          <a href="https://www.linkedin.com/in/razal-k-r" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative1.png') }}" alt="LinkedIn">
+          </a>
+          <a href="https://github.com/Razalkr70" target="_blank">
+            <img src="{{ url_for('static', filename='images/Negative.png') }}" alt="GitHub">
+          </a>
+        </div>
+      </div>
+  
+      <!-- Center Column -->
+      <div class="footer-center">
+        <h3 style=" color: var(--orange-yellow-crayola);">Contact</h3>
+  
+        <p>
+          <a href="https://www.google.com/maps/place/Thrissur,+Kerala" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/128/484/484167.png" alt="Location Icon" class="contact-icon">
+            Thrissur, Kerala, India
+          </a>
+        </p>
+  
+        <p>
+          <a href="razalkrdeveloper@gmail.com">
+            <img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" alt="Email Icon" class="contact-icon">
+           razalkrdeveloper@gmail.com
+          </a>
+        </p>
+  
+        <p>
+          <a href="tel:+91 8606230949">
+            <img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" alt="Phone Icon" class="contact-icon">
+            +91 8606230949
+          </a>
+        </p>
+      </div>
+  
+      <!-- Right Column -->
+      <div class="footer-right">
+        <h3 style=" color: var(--orange-yellow-crayola);">Quick Links</h3>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('resume') }}">Resume</a></li>
+          <li><a href="{{ url_for('projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+      </div>
+      
+  
+    </div> <!-- footer-container -->
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 RazalKR. All rights reserved.</p>
+    </div>
+  
+  </footer>
+  
+  <!-- SwiperJS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- lightGallery -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.umd.min.js"></script>
+
+</body>
+
+</html>
