@@ -1,8 +1,8 @@
 # from flask import Flask, render_template, request, 
 from flask import Flask, request, render_template, redirect, url_for, flash,jsonify
-from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
-import yaml
+# from chatterbot import ChatBot
+# from chatterbot.trainers import ListTrainer
+# import yaml
 from flask_mail import Mail, Message
 from flask import Flask, request, redirect, flash
 
@@ -21,32 +21,34 @@ app.config['MAIL_PASSWORD'] = 'uuvffmxxunjewhhm'  # Paste App Password here
 mail = Mail(app)
 
 
-# Load YAML data manually
-with open("chatbot.yml", "r", encoding="utf-8") as f:
-    data = yaml.safe_load(f)
+# # Load YAML data manually
+# with open("chatbot.yml", "r", encoding="utf-8") as f:
+#     data = yaml.safe_load(f)
 
-keyword_answers = {}
-for convo in data['conversations']:
-    if isinstance(convo, list) and len(convo) >= 2:
-        question = convo[0].lower()
-        answer = convo[1]
-        keyword_answers[question] = answer
+# keyword_answers = {}
+# for convo in data['conversations']:
+#     if isinstance(convo, list) and len(convo) >= 2:
+#         question = convo[0].lower()
+#         answer = convo[1]
+#         keyword_answers[question] = answer
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/get", methods=["POST"])
-def chatbot_response():
-    user_input = request.form["msg"].lower()
+# @app.route("/get", methods=["POST"])
+# def chatbot_response():
+#     user_input = request.form["msg"].lower()
 
-    # Keyword match
-    for keyword in keyword_answers:
-        if keyword in user_input:
-            return jsonify({"response": keyword_answers[keyword]})
+    # Sort keywords by length descending to match specific first
+    # sorted_keywords = sorted(keyword_answers.keys(), key=len, reverse=True)
 
-    # Default fallback
-    return jsonify({"response": "I'm sorry, I didn't understand. Could you please rephrase?"})
+    # for keyword in sorted_keywords:
+    #     if keyword in user_input:
+    #         return jsonify({"response": keyword_answers[keyword]})
+
+    # return jsonify({"response": "Hmm, I might need Razal to teach me that one — could you try asking in a different way?"})
+
 
 
 @app.route("/blog")
