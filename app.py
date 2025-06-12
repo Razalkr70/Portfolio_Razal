@@ -1,64 +1,104 @@
-# from flask import Flask, render_template, request, 
-from flask import Flask, request, render_template, redirect, url_for, flash,jsonify
-# from chatterbot import ChatBot
-# from chatterbot.trainers import ListTrainer
-# import yaml
+from flask import Flask, request, render_template, redirect, url_for, flash, jsonify, session
 from flask_mail import Mail, Message
-from flask import Flask, request, redirect, flash
-
+# from rapidfuzz import fuzz
+# import yaml
+# from operator import itemgetter
+# import datetime
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Required for flashing messages
+app.secret_key = 'portfolio1'  # Required for session and flashing messages
 
-
-# Mail Configuration
+# ================= MAIL CONFIG ===================
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'razalkrdeveloper@gmail.com'
-app.config['MAIL_PASSWORD'] = 'uuvffmxxunjewhhm'  # Paste App Password here
+app.config['MAIL_PASSWORD'] = 'uuvffmxxunjewhhm'  # Use Gmail App Password
 
 mail = Mail(app)
 
+# ================= YAML CHATBOT LOADER ===================
 
-# # Load YAML data manually
+# ================= YAML CHATBOT LOADER ===================
 # with open("chatbot.yml", "r", encoding="utf-8") as f:
 #     data = yaml.safe_load(f)
 
 # keyword_answers = {}
+
+# # Support multiple keyword variants per answer
 # for convo in data['conversations']:
 #     if isinstance(convo, list) and len(convo) >= 2:
-#         question = convo[0].lower()
-#         answer = convo[1]
-#         keyword_answers[question] = answer
+#         *question_variants, answer = convo
+#         for q in question_variants:
+#             keyword_answers[q.lower()] = answer
+
+# ================= CHATBOT FUNCTION ===================
+# def get_best_match(user_input, keyword_answers, threshold=80):
+#     candidates = []
+
+#     for keyword in keyword_answers:
+#         score = fuzz.partial_ratio(user_input, keyword)
+#         if score >= threshold:
+#             candidates.append((keyword, score, len(keyword.split())))
+
+#     if not candidates:
+#         return None
+
+#     # Sort by score first, then by keyword length (more words = more specific)
+#     candidates.sort(key=itemgetter(1, 2), reverse=True)
+#     return candidates[0][0]  # return best match keyword
+# def log_chat(user, bot):
+#     with open("chat_log.txt", "a", encoding="utf-8") as f:
+#         now = datetime.datetime.now()
+#         f.write(f"{now} - USER: {user}\n")
+#         f.write(f"{now} - BOT: {bot}\n")
+
+# ================= ROUTES ===================
 
 @app.route("/")
 def home():
     return render_template("index.html")
-
 # @app.route("/get", methods=["POST"])
 # def chatbot_response():
 #     user_input = request.form["msg"].lower()
 
-    # Sort keywords by length descending to match specific first
-    # sorted_keywords = sorted(keyword_answers.keys(), key=len, reverse=True)
+#     # Match using fuzzy logic and keyword priority
+#     match = get_best_match(user_input, keyword_answers)
+#     if match:
+#         response = keyword_answers[match]
+#         session['last_topic'] = match
+#         log_chat(user_input, response)
+#         return jsonify({"response": response})
 
-    # for keyword in sorted_keywords:
-    #     if keyword in user_input:
-    #         return jsonify({"response": keyword_answers[keyword]})
+#     # Multi-turn context extension (optional)
+#     last_topic = session.get("last_topic")
+#     if last_topic:
+#         if "project" in last_topic and "more" in user_input:
+#             response = "Razal has also worked on Facial Emotion Detection, AI Thought Bubble Generator, and Palm Line Reader AI."
+#             log_chat(user_input, response)
+#             return jsonify({"response": response})
 
-    # return jsonify({"response": "Hmm, I might need Razal to teach me that one — could you try asking in a different way?"})
-
-
+#     # Fallback response
+#     default_response = "Hmm, I might need Razal to teach me that one — could you try asking in a different way?"
+#     log_chat(user_input, default_response)
+#     return jsonify({"response": default_response})
 
 @app.route("/blog")
 def blog():
     return render_template("blog.html")
 
+@app.route("/resume")
+def resume():
+    return render_template("resume.html")
+
+@app.route("/projects")
+def projects():
+    return render_template("projects.html")
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.form.get('fullname')  # Matching the HTML field name
+        name = request.form.get('fullname')
         email = request.form.get('email')
         message = request.form.get('message')
 
@@ -81,13 +121,6 @@ def contact():
 
     return render_template('contact.html')
 
-@app.route("/resume")
-def resume():
-    return render_template("resume.html")
-
-@app.route("/projects")
-def projects():
-    return render_template("projects.html")
-
+# ================= RUN ===================
 if __name__ == "__main__":
     app.run(debug=True)

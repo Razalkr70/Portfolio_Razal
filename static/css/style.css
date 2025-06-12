@@ -1813,6 +1813,59 @@ textarea.form-input {
   padding: 10px 15px;
   cursor: pointer;
 }
+/* Typing indicator style */
+.typing-indicator {
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  position: relative;
+}
+
+.typing-indicator::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: blink 1s infinite ease-in-out;
+}
+
+.typing-indicator::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: blink 1s infinite ease-in-out;
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span {
+  position: absolute;
+  top: 8px;
+  left: 40px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: blink 1s infinite ease-in-out;
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 
 
 /* Tablets and small laptops (max-width: 1024px) */
@@ -1978,7 +2031,7 @@ padding-top:10px;
     scroll-snap-align: start;
      /* border: 1px solid var(--orange-yellow-crayola);
   border-radius: 8px; */
-    max-width: 350px !important;
+    max-width: 340px !important;
     margin-right: 12px !important;
     padding: 10px !important;
     box-sizing: border-box;
@@ -2052,7 +2105,7 @@ padding-top:10px;
     margin-bottom: 2rem;
     padding-left: 0.8rem;
     border-left: 3px solid var(--orange-yellow-crayola);
-    width:55%;
+    width:54%;
   }
 
   .timeline-item h3 {
@@ -2298,7 +2351,7 @@ padding-top:10px;
 
 
 /* Responsive corrections */
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   .filter-bar {
     justify-content: space-between; /* spread buttons evenly */
     gap: 10px 0; /* vertical gap only */

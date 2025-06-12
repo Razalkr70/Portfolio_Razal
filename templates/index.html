@@ -625,13 +625,13 @@ window.addEventListener('load', autoScrollSkills);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
-
 <!-- 
+
   <div class="chat-icon" onclick="toggleChat()">
     <img src="{{ url_for('static', filename='images/Group 1000005025.svg') }}" alt="Chatbot" />
 
-  </div> -->
-<!-- 
+  </div>
+
   <div class="chat-widget" id="chatWidget">
     <div class="chat-header">
       <span>Razal's Assistant</span>
@@ -655,31 +655,81 @@ window.addEventListener('load', autoScrollSkills);
       widget.classList.toggle('active');
     }
 
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const msg = input.value.trim();
-      if (!msg) return;
+    
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value.trim();
+    if (!msg) return;
 
-      const chatbox = document.getElementById("chatbox");
-      chatbox.innerHTML += `<div class="chat user"><span>You:</span> ${msg}</div>`;
+    const chatbox = document.getElementById("chatbox");
+    appendMessage("user", "You", msg);
+    input.value = "";
 
-      fetch("/get", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "msg=" + encodeURIComponent(msg)
-      })
-      .then(res => res.json())
-      .then(data => {
-        chatbox.innerHTML += `<div class="chat bot"><span>Bot:</span> ${data.response}</div>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
-        input.value = "";
-      });
-    }
+    appendTypingIndicator();
 
-    document.getElementById("userInput").addEventListener("keydown", function (e) {
-      if (e.key === "Enter") sendMessage();
+    fetch("/get", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: "msg=" + encodeURIComponent(msg)
+    })
+    .then(res => res.json())
+    .then(data => {
+      removeTypingIndicator();
+      typeBotMessage("Bot", data.response);
     });
-  </script>
+  }
+
+  function appendMessage(sender, label, text) {
+    const chatbox = document.getElementById("chatbox");
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `chat ${sender}`;
+    msgDiv.innerHTML = `<span>${label}:</span> ${text}`;
+    chatbox.appendChild(msgDiv);
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  function appendTypingIndicator() {
+    const chatbox = document.getElementById("chatbox");
+    const typingDiv = document.createElement("div");
+    typingDiv.id = "typing-indicator";
+    typingDiv.className = "chat bot";
+    typingDiv.innerHTML = `<span>Bot:</span> <em>Typing...</em>`;
+    chatbox.appendChild(typingDiv);
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const typingDiv = document.getElementById("typing-indicator");
+    if (typingDiv) typingDiv.remove();
+  }
+
+  function typeBotMessage(label, text) {
+    const chatbox = document.getElementById("chatbox");
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "chat bot";
+    msgDiv.innerHTML = `<span>${label}:</span> <span class="typing-text"></span>`;
+    chatbox.appendChild(msgDiv);
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    const typingSpan = msgDiv.querySelector(".typing-text");
+    let i = 0;
+    const speed = 30;
+
+    const typeInterval = setInterval(() => {
+      if (i < text.length) {
+        typingSpan.textContent += text.charAt(i);
+        chatbox.scrollTop = chatbox.scrollHeight;
+        i++;
+      } else {
+        clearInterval(typeInterval);
+      }
+    }, speed);
+  }
+
+  document.getElementById("userInput").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") sendMessage();
+  });
+</script>
   <footer class="footer" id="footer">
   
     <div class="footer-container">
@@ -689,7 +739,7 @@ window.addEventListener('load', autoScrollSkills);
         <h2 style=" color: var(--orange-yellow-crayola);">Razal K R</h2>
         <p>build smart AI solutions designed to solve real challenges by leveraging the latest advances in machine learning and data science. My mission is to make technology intuitive and accessible, enabling smarter decisions and better outcomes for businesses and communities.</p>
         <div class="social-icons-inline">
-          <a href="https://wa.me/7025333282" target="_blank">
+          <a href="https://wa.me/8606230949" target="_blank">
             <img src="{{ url_for('static', filename='images/Negative2.png') }}" alt="WhatsApp">
           </a>
           <a href="https://www.instagram.com/__mr_r_k_r__?igsh=MTk0cTV4cjNjMzZoOQ==" target="_blank">
