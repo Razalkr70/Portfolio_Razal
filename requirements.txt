@@ -1,8 +1,4 @@
 Flask==3.0.0
 Flask-Mail==0.9.1
-<<<<<<< HEAD
-=======
 gunicorn
->>>>>>> e15b82e5bf86a7187b6eafda60de869efb0b45be
 pyyaml==5.1
-
