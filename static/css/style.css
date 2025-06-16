@@ -1917,7 +1917,7 @@ textarea.form-input {
 
 
 /* Mobile Responsiveness */
-@media (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px){
    .main-content {
     border: none;
     border-radius: 0;
@@ -2064,13 +2064,13 @@ padding-top:10px;
     background-color: var(--orange-yellow-crayola);
   }
 }
-@media (max-width: 760px) {
+@media (min-width: 320px) and (max-width: 767px) {
  
  .timeline-tabs {
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
-    margin-left: 17px;  /* consider changing or removing */
+    margin-left: 1.0625rem;  /* consider changing or removing */
     margin-bottom: 2rem;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -2087,7 +2087,7 @@ padding-top:10px;
     padding: 0.6rem 1rem;
     font-size: 1rem;
     white-space: nowrap;
-    max-width: 130px;
+    max-width:  8.120rem;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2145,7 +2145,7 @@ padding-top:10px;
 
 
 /* For smaller mobiles */
-@media (max-width: 760px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .about1 {
     max-width: 95vw;      /* slightly wider on small mobiles */
     padding: 1rem 1rem;
@@ -2250,7 +2250,7 @@ padding-top:10px;
     font-size: 12px;
   }
 }
-@media (max-width: 760px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .resume {
     padding: 0rem; /* Reduce left & right padding to 1rem, adjust as needed */
     max-width: 100%;
@@ -2292,7 +2292,7 @@ padding-top:10px;
 }
 
 
-@media (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .blog-posts-list {
     grid-template-columns: 1fr; /* Switch to single column */
   }
@@ -2305,7 +2305,7 @@ padding-top:10px;
     height: 200px; /* Adjust image height for mobile */
   }
 }
-@media (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .skills-scroll-wrapper {
     width: 370px;       /* narrower width on smaller screens */
     max-width: none;  /* override fixed max-width */
@@ -2314,7 +2314,7 @@ padding-top:10px;
   }
 }
 
-@media (max-width: 760px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .skill1-list {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -2351,7 +2351,7 @@ padding-top:10px;
 
 
 /* Responsive corrections */
-@media (max-width: 760px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .filter-bar {
     justify-content: space-between; /* spread buttons evenly */
     gap: 10px 0; /* vertical gap only */
@@ -2537,7 +2537,7 @@ padding-top:10px;
 
 }
 
-@media (max-width: 765px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .main-content {
     margin-top: 20px !important;
     margin-bottom: 0 !important;
