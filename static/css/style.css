@@ -182,7 +182,7 @@ body {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 5px solid var(--orange-yellow-crayola);
+  /* border: 5px solid var(--orange-yellow-crayola); */
   object-fit: cover;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -654,12 +654,12 @@ body {
   color: var(--white);
 }
 
-/* Timeline Section */
-.timeline-resume {
+/* Track Section (formerly Timeline Section) */
+.track-resume {
   margin-bottom: 2.5rem;
 }
 
-.timeline-resume .title-wrapper {
+.track-resume .title-wrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -667,7 +667,7 @@ body {
   margin-top: 4rem;
 }
 
-.timeline-resume .icon-box {
+.track-resume .icon-box {
   background-color: var(--orange-yellow-crayola);
   color: #1e1e1e;
   padding: 0.6rem;
@@ -687,34 +687,34 @@ body {
   justify-content: center;
 }
 
-.timeline-resume .timeline-list {
+.track-resume .track-list {
   list-style: none;
   padding-left: 0;
 }
 
-.timeline-resume .timeline-item {
+.track-resume .track-item {
   margin-bottom: 3rem;
 }
 
-.timeline-resume .timeline-item-title {
+.track-resume .track-item-title {
   font-weight: bold;
   color: var(--orange-yellow-crayola);
   margin-bottom: 0.5rem;
 }
 
-.timeline-resume .timeline-text {
+.track-resume .track-text {
   color: #ccc;
   margin-top: 1rem;
   line-height: 1.5rem;
   font-size: 0.9rem;
-  text-align: left;           /* ensure left alignment */
-  word-break: break-word;     /* allow long words to break */
-  overflow-wrap: break-word;  /* ensure safe breaking */
-  white-space: normal;        /* remove any forced spacing */
-  margin-left: 0;             /* optional: remove left margin if exists */
-  margin-right: 0;            /* optional: remove right margin if exists */
-  padding-left: 0;            /* optional: remove left padding if exists */
-  padding-right: 0;           /* optional: remove right padding if exists */
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 
@@ -972,6 +972,7 @@ body {
   color: #aaa;
   font-size: 28px;
   cursor: pointer;
+  
 }
 .modal-buttons {
   display: flex;
@@ -2005,6 +2006,7 @@ textarea.form-input {
   }
    .service {
 padding-top:10px;
+padding-right:3rem;
 
 }
   /* Override service-list to flex container for horizontal sliding */
@@ -2014,6 +2016,7 @@ padding-top:10px;
     width: 300%; /* 3 slides */
     padding-left: 0 !important;
     margin-left: 0 !important;
+    padding-right: 2rem;
   }
 
   /* Each slide is 1/3 of the .service-list width */
@@ -2040,6 +2043,7 @@ padding-top:10px;
   /* Adjust padding-left to align text better */
   .service-item-text {
     padding-left: 45px;
+    padding-right: 0.5rem;
   }
 
   /* Carousel dots container */
@@ -2065,33 +2069,33 @@ padding-top:10px;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
- 
- .timeline-tabs {
+
+  .timeline-tabs {
     display: flex;
     justify-content: flex-start;
     gap: 1rem;
-    margin-left: 1.0625rem;  /* consider changing or removing */
-    margin-bottom: 2rem;
-    flex-wrap: nowrap;
+    padding: 0 1rem;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding-bottom: 0.3rem;
   }
+
   .timeline-tabs::-webkit-scrollbar {
     display: none;
   }
+
   .tab-button {
-    flex: 0 0 auto;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
     white-space: nowrap;
-    max-width:  8.120rem;
-    text-align: center;
-    overflow: hidden;
+    flex: 0 0 auto;
+    max-width: 7rem;
     text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
   }
+
  .tab-content {
     display: none;
     animation: fadeIn 0.5s ease;
@@ -2100,42 +2104,48 @@ padding-top:10px;
   .tab-content.active {
     display: block;
   }
-
-  .timeline-item {
-    margin-bottom: 2rem;
+ .timeline-item {
     padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    margin-bottom: 1.5rem;
     border-left: 3px solid var(--orange-yellow-crayola);
-    width:54%;
+    width: 75%;
+    box-sizing: border-box;
   }
+   
 
   .timeline-item h3 {
-    font-size: 1.1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.1rem;
-  }
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.1rem;
+  margin-right: 1rem;
+
+  max-width: 62%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
 
   .timeline-item span {
     font-size: 0.85rem;
     color: var(--vegas-gold);
   }
-
+  
   .timeline-item p {
-    margin-top: 0.3rem;
-    font-size: 0.95rem;
-    color: var(--light-gray);
-    line-height: 1.3;
-  } 
-  .timeline-item p {
-    margin-top: 0.3rem;
-    font-size: 0.95rem;
-    color: var(--light-gray);
-    line-height: 1.3;
+  margin-top: 0.3rem;
+  font-size: 0.90rem;
+  color: var(--light-gray);
+  line-height: 1.3;
 
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    hyphens: auto;
-  }
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  hyphens: auto;
+
+  max-width: 62%;  /* Adjust this value as needed */
+}
+
 }
 
 
@@ -2250,46 +2260,49 @@ padding-top:10px;
     font-size: 12px;
   }
 }
+
 @media (min-width: 320px) and (max-width: 767px) {
   .resume {
-    padding: 0rem; /* Reduce left & right padding to 1rem, adjust as needed */
+    padding: 0rem;
     max-width: 100%;
   }
 
-  .timeline-resume {
+  .track-resume {
     width: 100%;
-    padding: 0rem; /* Same here */
-    text-align: left; /* Align all text to left */
+    padding: 0rem;
+    text-align: left;
+    
   }
 
-  .timeline-resume .title-wrapper {
-    align-items: flex-start; /* Align items to left vertically */
+  .track-resume .title-wrapper {
+    align-items: flex-start;
     text-align: left;
   }
 
-  .timeline-resume .timeline-item {
+  .track-resume .track-item {
     margin-bottom: 2rem;
     width: 100%;
     text-align: left;
+    
   }
 
-  .timeline-resume .timeline-item-title {
+  .track-resume .track-item-title {
     font-size: 1rem;
     text-align: left;
   }
 
- .timeline-resume .timeline-text {
-  font-size: 0.9rem;
-  line-height: 1.5rem;
-  text-align: left;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  margin: 0;            /* Remove default margins */
-  padding: 0;           /* Remove default paddings */
-  white-space: normal;
+  .track-resume .track-text {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    white-space: normal;
+  }
 }
 
-}
 
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -2353,17 +2366,27 @@ padding-top:10px;
 /* Responsive corrections */
 @media (min-width: 320px) and (max-width: 767px) {
   .filter-bar {
-    justify-content: space-between; /* spread buttons evenly */
-    gap: 10px 0; /* vertical gap only */
-     padding: 0 30px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px; /* Reduced gap between buttons */
+    padding: 0 10px;
   }
 
   .filter-btn {
-    /* almost half width, so 2 fit per row */
-    margin: 0;    /* remove margin to avoid extra horizontal space */
-    box-sizing: border-box; /* include border/padding in width */
+    white-space: nowrap;       /* Prevent text wrap */
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    height: 48px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 25px;       /* More curved border */
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 }
+
 @media screen and (max-width: 765px) {
   .project-list {
     display: flex;
@@ -2530,7 +2553,7 @@ padding-top:10px;
     height: 40px;
   }
   
- .timeline-resume .timeline-text {
+#track-resume .track-text{
  width:97%;
 }
 
@@ -2550,3 +2573,22 @@ padding-top:10px;
 }
 
 
+@media screen and (max-width: 767px) {
+  .modal-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between buttons */
+    flex-wrap: nowrap; /* Ensure buttons stay on the same line */
+  }
+
+  .modal-buttons button,
+  .modal-buttons a {
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+   .skill-subtitle {
+    font-size: 0.95rem;     /* Slightly smaller on mobile */
+    margin-bottom: 1rem;    /* Reduce vertical spacing */
+  }
+}
